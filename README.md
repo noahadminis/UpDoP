@@ -56,13 +56,6 @@ RESP:
 | VERSION  | STATUS | 
 | UPDOP1.0 | 100    |
 
-END:
-
-| END |
-
-ACK:
-
-| ACK |
 
 ### DOWNLOAD ###
 
@@ -87,13 +80,6 @@ RESP:
 | VERSION  | STATUS | 
 | UPDOP1.0 | 100    |
 
-END:
-
-| END |
-
-ACK:
-
-| ACK |
 
 ### CONFIGURATION ###
 
@@ -101,8 +87,10 @@ Client:
 
 ServerIP=
 Port=
+LogFile=
 
 Server:
 
 Port=
 DataDirectory=
+LogFile=
