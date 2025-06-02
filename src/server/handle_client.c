@@ -15,31 +15,40 @@ void *handle_client(void * arg){
     int opened_file_fd;
     char resp_buffer[BUFFER_SIZE];
 
-    char * buffer = (char *)malloc(BUFFER_SIZE * sizeof(char));
+    char * recv_buffer = (char *)malloc(BUFFER_SIZE * sizeof(char));
+
+    if (recv_buffer == NULL)
+    {
+        perror("malloc()");
+        return EXIT_FAILURE;
+    }
+    
     char * read_buffer = (char *)malloc(BUFFER_SIZE * sizeof(char));
 
-
+    if (read_buffer == NULL)
+    {
+        perror("malloc()");
+        return EXIT_FAILURE;
+    }
 
    ssize_t bytes_received; 
 
-    while ((bytes_received = recv(fd, buffer, BUFFER_SIZE, 0)) > 0)
+    while ((bytes_received = recv(fd, recv_buffer, BUFFER_SIZE, 0)) > 0)
     {
+
+        if ()
+        {
+            /* code */
+        }
         
     }
-    
-
-    if (bytes_received < 0) {
-        perror("webserver (recv)");
+    if (bytes_received < -1)
+    {
+        perror("recv():");
         close(fd);
-        free(buffer);
+        free(recv_buffer);
         free(read_buffer);
-        return 0;
-    } else if (bytes_received == 0) {
-        // Verbindung wurde vom Client geschlossen
-        close(fd);
-        free(buffer);
-        free(read_buffer);
-        return 0;
+        return EXIT_FAILURE;
     }
     
     // Extracting the file name from the HTTP-Request
