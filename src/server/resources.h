@@ -3,4 +3,4 @@
 
 void *handle_client(void * arg);
 
-void write_log(char * msg);
+void write_log(char * msg, char * log_file);
