@@ -77,7 +77,7 @@ int main()
 
         pthread_t thread_id;
         pthread_create(&thread_id, NULL, handle_client, (void *)arg);
-
+        pthread_detach(thread_id);
     }
     return 0;
 }
